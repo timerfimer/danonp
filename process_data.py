@@ -31,7 +31,7 @@ def create_analiz():
 
     # Послідовна обробка рядків масиву 'dovidnik'
         for dovidnik in dovidniks: 
-            if dovidnik_code == dovidnik[0]:
+            if dovidnik_name == dovidnik[0]:
                 return dovidnik[1]
 
         return "*** назва не знайдена"
@@ -43,18 +43,17 @@ def create_analiz():
     for danie in danies:
 
         #підготувати робочий словник для рядка 'order'
-       analiz_work = analysis.copy()
+       analiz_work = analiz.copy()
 
         # Заповнити робочий словник значеннями  
-        analiz_work['market_code'] = danie[0]
-        analiz_work['market_name'] = get_dovidnik_name(danie[1])
-        analiz_work['date'] = danie[0]
-        analiz_work['price_of_potato'] = danie[2]
-        analiz_work['price_of_cabbage'] = danie[3]
-        analiz_work['price_of_onion'] = danie[4]
-        analiz_work['average_price'] = (analiz_work['price_of_potato'] + analiz_work['price_of_cabbage'] + analiz_work['price_of_onion']) // 3))
-        # Зробити робочий словник з шаблону
+    analiz_work['market_code'] = danie[0]
+    analiz_work['market_name'] = get_dovidnik_name(danie[1])
+    analiz_work['date'] = danie[0]
+    analiz_work['price_of_potato'] = danie[2]
+    analiz_work['price_of_cabbage'] = danie[3]
+    analiz_work['price_of_onion'] = danie[4]
+    analiz_work['average_price'] = round((analiz_work['price_of_potato'] + analiz_work['price_of_cabbage'] + analiz_work['price_of_onion']) / 3)
+    # Зробити робочий словник з шаблону
 
-        analiz_list.append(analiz_work)
-    return(analiz_list)
-create_analiz()
+    analiz_list.append(analiz_work)
+    return analiz_list 

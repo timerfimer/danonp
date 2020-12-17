@@ -41,8 +41,9 @@ def get_danies():
     
     for line in from_file:
         line_list = line.split(';')
+        line_list[2] = int(line_list[2])
         line_list[3] = int(line_list[3])
-        line_list[4] = float(line_list[4])
+        line_list[4] = int(line_list[4])
         danies_list.append(line_list)
 
     return danies_list
@@ -63,7 +64,7 @@ def show_dovidniks(dovidniks):
 
     for dovidnik in dovidniks:
         if dovidnik_code_from <= dovidnik[0] <= dovidnik_code_to:
-            print ("код: {:5} назва: {:15}".format(dovidnik[0],dovidnik[1]))
+            print ("код: {:5} назва: {:15}".format(dovidnik[0], dovidnik[1]))
             lines_found += 1
 
     if lines_found == 0:
